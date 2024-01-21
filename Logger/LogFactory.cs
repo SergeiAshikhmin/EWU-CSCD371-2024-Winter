@@ -1,10 +1,15 @@
-﻿namespace Logger;
+﻿using System;
+using System.Threading;
+
+namespace Logger;
 
 public class LogFactory
 {
-    public BaseLogger? CreateLogger(string className)
+    public BaseLogger CreateLogger(string className)
     {
 
-        return null;
+        FileLogger FileLogger = new FileLogger();
+        FileLogger.ClassName = className;
+        return FileLogger;
     }
 }
