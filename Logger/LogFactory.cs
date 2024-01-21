@@ -13,8 +13,9 @@ public class LogFactory
         FileLogger.ClassName = className;
         return FileLogger;
     }
-    public void ConfigureFileLogger(string pathName)
+    public string ConfigureFileLogger(string pathName)
         {
             _PathName = pathName;
+            return _PathName;
         }
 }

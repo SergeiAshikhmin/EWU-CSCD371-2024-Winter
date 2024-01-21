@@ -20,4 +20,12 @@ public class LogFactoryTests
         BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger");
         Assert.AreNotEqual("FileNotLogger", FileLogger.ClassName);
     }
+
+    [TestMethod]
+    public void ConfigureFileLogger_CorrectPathName_Success()
+    {
+        LogFactory LogFactory = new LogFactory();
+        string PathName = LogFactory.ConfigureFileLogger("text.txt");
+        Assert.AreEqual("text.txt", PathName);
+    }
 }
