@@ -8,7 +8,7 @@ namespace Logger
 {
     public class FileLogger : BaseLogger
     {
-        private readonly string? _PathName;
+        private readonly string _PathName;
         public FileLogger(string filePath)
         {
             _PathName = filePath;
@@ -16,6 +16,11 @@ namespace Logger
         public override void Log(LogLevel logLevel, string message)
         {
             throw new NotImplementedException();
+        }
+
+        public string GetPathName()
+        {
+            return _PathName;
         }
     }
 }
