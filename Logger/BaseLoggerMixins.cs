@@ -34,7 +34,17 @@ public static class BaseLoggerMixins
             throw new ArgumentNullException("Error extention method: Missing BaseLogger");
         }
 
-        logger.Log(LogLevel.Warning, message);
+        if(args == null)
+        {
+            logger.Log(LogLevel.Warning, message);
+        }
+        else
+        {
+            
+            String TempMessage = String.Format(message, args);
+            
+            logger.Log(LogLevel.Warning, TempMessage);
+        }
     }
 
     public static void Information(this BaseLogger? logger, string message, params string[] args)
@@ -44,7 +54,17 @@ public static class BaseLoggerMixins
             throw new ArgumentNullException("Error extention method: Missing BaseLogger");
         }
 
-        logger.Log(LogLevel.Information, message);
+       if(args == null)
+        {
+            logger.Log(LogLevel.Information, message);
+        }
+        else
+        {
+            
+            String TempMessage = String.Format(message, args);
+            
+            logger.Log(LogLevel.Information, TempMessage);
+        }
     }
 
     public static void Debug(this BaseLogger? logger, string message, params string[] args)
@@ -54,6 +74,16 @@ public static class BaseLoggerMixins
             throw new ArgumentNullException("Error extention method: Missing BaseLogger");
         }
 
-        logger.Log(LogLevel.Debug, message);
+        if(args == null)
+        {
+            logger.Log(LogLevel.Debug, message);
+        }
+        else
+        {
+            
+            String TempMessage = String.Format(message, args);
+            
+            logger.Log(LogLevel.Debug, TempMessage);
+        }
     }
 }
