@@ -6,12 +6,15 @@ namespace Logger;
 public class LogFactory
 {
     private string? _PathName;
-    public BaseLogger CreateLogger(string className)
+    public BaseLogger? CreateLogger(string className)
     {
+        if(className == nameof(FileLogger)){
+            FileLogger FileLogger = new FileLogger(_PathName!);
+            FileLogger.ClassName = className;
+            return FileLogger;
+        }
 
-        FileLogger FileLogger = new FileLogger(_PathName!);
-        FileLogger.ClassName = className;
-        return FileLogger;
+        return null;
     }
     public string ConfigureFileLogger(string pathName)
         {

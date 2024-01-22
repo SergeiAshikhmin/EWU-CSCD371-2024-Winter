@@ -9,7 +9,7 @@ public class LogFactoryTests
     public void CreateLogger_CheckClassName_Success()
     {
         LogFactory LogFactory = new LogFactory();
-        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger");
+        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger")!;
         Assert.AreEqual("FileLogger", FileLogger.ClassName);
     }
 
@@ -17,7 +17,7 @@ public class LogFactoryTests
     public void CreateLogger_CheckClassName_Fail()
     {
         LogFactory LogFactory = new LogFactory();
-        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger");
+        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger")!;
         Assert.AreNotEqual("FileNotLogger", FileLogger.ClassName);
     }
 
