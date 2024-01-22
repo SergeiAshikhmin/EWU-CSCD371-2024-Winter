@@ -5,7 +5,7 @@ namespace Logger;
 
 public static class BaseLoggerMixins
 {
-    public static void Error(this BaseLogger? logger, string message, params int[] args)
+    public static void Error(this BaseLogger? logger, string message, params object[] args)
     {
         if(logger == null)
         {
@@ -18,9 +18,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            for (int i = 0 ; i < args.Length; i++){
-                message = String.Format(message, args[i]);
-            }
+            
+            message = String.Format(message, args);
+            
             logger.Log(LogLevel.Error, message);
         }
 

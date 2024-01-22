@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace Logger.Tests;
 
@@ -26,7 +27,8 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        logger.Error("Message {0}", 42);
+        int[] myArray = new int[] { 1, 2, };
+        logger.Error("Message {0} {1}", myArray);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
