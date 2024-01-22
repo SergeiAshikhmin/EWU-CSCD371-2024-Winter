@@ -16,8 +16,11 @@ namespace Logger
         }
         public override void Log(LogLevel logLevel, string message)
         {
-            
-            throw new NotImplementedException();
+            StreamWriter StreamWriter = new StreamWriter(GetPathName());
+
+            StreamWriter.WriteLine(message);
+
+            StreamWriter.Close();
         }
 
         public string GetPathName()
