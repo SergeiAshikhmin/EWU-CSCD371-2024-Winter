@@ -28,4 +28,12 @@ public class LogFactoryTests
         string PathName = LogFactory.ConfigureFileLogger("text.txt");
         Assert.AreEqual("text.txt", PathName);
     }
+
+    [TestMethod]
+    public void CreateLogger_InvalidClassName_Fail()
+    {
+        LogFactory LogFactory = new LogFactory();
+        Assert.AreEqual(null, LogFactory.CreateLogger("InvalidClaseName"));
+
+    }
 }
