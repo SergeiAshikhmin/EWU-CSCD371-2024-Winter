@@ -18,8 +18,8 @@ public class FileLogger : BaseLogger
         DateTime DateTime = DateTime.Now;
         string ClassName = this.ClassName ?? "Null name???";
         string MessageToAppend = $"{DateTime} {ClassName} {logLevel.ToString()} : {message}";
-        string RelativeFilePath = Path.GetFullPath(GetPathName());
-        File.AppendAllText(RelativeFilePath, MessageToAppend + Environment.NewLine);
+        //string RelativeFilePath = Path.GetFullPath(GetPathName());
+        File.AppendAllText(GetPathName(), MessageToAppend + Environment.NewLine);
     }
 
     public string GetPathName()

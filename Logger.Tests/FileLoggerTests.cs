@@ -32,18 +32,23 @@ public class FileLoggerTests
     [TestMethod]
     public void Log_WriteToAFile_Success()
     {
-        string FilePath = "Text.txt";
+        //string FilePath = "MyNewText.txt";
+        //string RelativePath = Path.GetFullPath(FilePath);
         string Message = "Here is my message, please don't yeal at me";
 
-        if(File.Exists(FilePath))
+        if (File.Exists(_filePath))
         {
-            File.Delete(FilePath);
+            File.Delete(_filePath);
+        }
+        else
+        {
+            File.Create(_filePath);
         }
 
         _fileLogger!.ClassName = "FileLogger";
         _fileLogger!.Log(LogLevel.Error, Message);
 
-        StreamReader StreamReader = new(FilePath);
+        StreamReader StreamReader = new(_filePath);
         string MessageFromStreamReader = StreamReader.ReadLine() ?? string.Empty;
         StreamReader.Close();
 
