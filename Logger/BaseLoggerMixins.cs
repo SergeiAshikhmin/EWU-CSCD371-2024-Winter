@@ -19,9 +19,9 @@ public static class BaseLoggerMixins
         else
         {
             
-            message = String.Format(message, args);
+            String TempMessage = String.Format(message, args);
             
-            logger.Log(LogLevel.Error, message);
+            logger.Log(LogLevel.Error, TempMessage);
         }
 
         
