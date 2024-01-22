@@ -27,13 +27,27 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        int[] myArray = new int[] { 1, 2, };
-        logger.Error("Message {0} {1}", myArray);
+        logger.Error("Message {0}", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
         Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+    }
+
+    [TestMethod]
+    public void Error_WithMoreData_LogsMessage()
+    {
+        // Arrange
+        var logger = new TestLogger();
+
+        // Act
+        logger.Error("Message {0} {1} {2} {3}", 20, 35, 100, 5);
+
+        // Assert
+        Assert.AreEqual(1, logger.LoggedMessages.Count);
+        Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
+        Assert.AreEqual("Message 20 35 100 5", logger.LoggedMessages[0].Message);
     }
 
 }
