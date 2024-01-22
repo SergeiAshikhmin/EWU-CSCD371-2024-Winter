@@ -27,7 +27,7 @@ public static class BaseLoggerMixins
         
     }
 
-    public static void Warning(this BaseLogger? logger, string message, params string[] args)
+    public static void Warning(this BaseLogger? logger, string message, params object[] args)
     {
         if (logger == null)
         {
@@ -47,7 +47,7 @@ public static class BaseLoggerMixins
         }
     }
 
-    public static void Information(this BaseLogger? logger, string message, params string[] args)
+    public static void Information(this BaseLogger? logger, string message, params object[] args)
     {
         if (logger == null)
         {
@@ -67,7 +67,7 @@ public static class BaseLoggerMixins
         }
     }
 
-    public static void Debug(this BaseLogger? logger, string message, params string[] args)
+    public static void Debug(this BaseLogger? logger, string message, params object[] args)
     {
         if (logger == null)
         {
