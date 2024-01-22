@@ -9,26 +9,23 @@ namespace Logger.Tests;
 [TestClass]
 public class FileLoggerTests
 {
-    private readonly FileLogger? _fileLogger;
+    private FileLogger? _fileLogger;
     private readonly string _filePath = "text.txt";
     [TestInitialize]
     public void Constructor()
     {
-        FileLogger _fileLogger = new(_filePath);
+        _fileLogger = new(_filePath);
     }
 
     [TestMethod]
     public void FileLogger_FilePathCheck_Success()
     {
-        
         Assert.AreEqual(_filePath, _fileLogger!.GetPathName());
     }
 
     [TestMethod]
     public void FileLogger_FilePathCheck_Fail()
     {
-        string FilePath = "text.txt";
-        FileLogger FileLogger = new FileLogger(FilePath);
         Assert.AreNotEqual("notText.txt", _fileLogger!.GetPathName());
     }
 
@@ -43,9 +40,8 @@ public class FileLoggerTests
             File.Delete(FilePath);
         }
 
-        FileLogger _fileLogger = new FileLogger(FilePath);
-        _fileLogger.ClassName = "FileLogger";
-        _fileLogger.Log(LogLevel.Error, Message);
+        _fileLogger!.ClassName = "FileLogger";
+        _fileLogger!.Log(LogLevel.Error, Message);
 
         StreamReader StreamReader = new StreamReader(FilePath);
         string MessageFromStreamReader = StreamReader.ReadLine() ?? string.Empty;
