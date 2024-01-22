@@ -32,7 +32,7 @@ public class FileLoggerTests
     [TestMethod]
     public void Log_WriteToAFile_Success()
     {
-        string FilePath = "C:\\CSCD371\\EWU-CSCD371-2024-Winter\\Text.txt";
+        string FilePath = "Text.txt";
         string Message = "Here is my message, please don't yeal at me";
 
         if(File.Exists(FilePath))
