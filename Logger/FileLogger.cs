@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Logger
         }
         public override void Log(LogLevel logLevel, string message)
         {
+            
             throw new NotImplementedException();
         }
 
@@ -22,5 +24,6 @@ namespace Logger
         {
             return _PathName;
         }
+
     }
 }
