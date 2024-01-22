@@ -43,7 +43,7 @@ public class FileLoggerTests
         _fileLogger!.ClassName = "FileLogger";
         _fileLogger!.Log(LogLevel.Error, Message);
 
-        StreamReader StreamReader = new StreamReader(FilePath);
+        StreamReader StreamReader = new(FilePath);
         string MessageFromStreamReader = StreamReader.ReadLine() ?? string.Empty;
         StreamReader.Close();
 
