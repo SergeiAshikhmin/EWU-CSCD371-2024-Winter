@@ -16,7 +16,10 @@ namespace Logger
         }
         public override void Log(LogLevel logLevel, string message)
         {
-            File.AppendAllText(GetPathName(),message + Environment.NewLine);
+            DateTime DateTime = DateTime.Now;
+            string ClassName = this.ClassName ?? "Null name???";
+            string MessageToAppend = $"{DateTime} {ClassName} {logLevel.ToString()} : {message}";
+            File.AppendAllText(GetPathName(), MessageToAppend + Environment.NewLine);
         }
 
         public string GetPathName()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Logger.Tests;
@@ -29,14 +30,24 @@ public class FileLoggerTests
     {
         string FilePath = "C:\\CSCD371\\EWU-CSCD371-2024-Winter\\Text.txt";
         string Message = "Here is my message, please don't yeal at me";
+
+        if(File.Exists(FilePath))
+        {
+            File.Delete(FilePath);
+        }
+
         FileLogger FileLogger = new FileLogger(FilePath);
-        FileLogger.Log(LogLevel.Error, Message);
+        FileLogger.ClassName = "FileLogger";
         FileLogger.Log(LogLevel.Error, Message);
 
         StreamReader StreamReader = new StreamReader(FilePath);
         string MessageFromStreamReader = StreamReader.ReadLine() ?? string.Empty;
         StreamReader.Close();
-        Assert.AreEqual(Message, MessageFromStreamReader);
+
+        DateTime DateTime = DateTime.Now;
+        string MessageToAppend = $"{DateTime} FileLogger Error : {Message}";
+
+        Assert.AreEqual(MessageToAppend, MessageFromStreamReader);
 
     }
 
