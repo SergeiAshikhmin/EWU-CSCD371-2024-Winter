@@ -31,6 +31,7 @@ public class FileLoggerTests
         string Message = "Here is my message, please don't yeal at me";
         FileLogger FileLogger = new FileLogger(FilePath);
         FileLogger.Log(LogLevel.Error, Message);
+        FileLogger.Log(LogLevel.Error, Message);
 
         StreamReader StreamReader = new StreamReader(FilePath);
         string MessageFromStreamReader = StreamReader.ReadLine() ?? string.Empty;
