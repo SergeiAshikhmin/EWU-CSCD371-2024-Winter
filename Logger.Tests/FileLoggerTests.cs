@@ -32,8 +32,6 @@ public class FileLoggerTests
     [TestMethod]
     public void Log_WriteToAFile_Success()
     {
-        //string FilePath = "MyNewText.txt";
-        //string RelativePath = Path.GetFullPath(FilePath);
         string Message = "Here is my message, please don't yeal at me";
 
         if (File.Exists(_filePath))
@@ -42,7 +40,8 @@ public class FileLoggerTests
         }
         else
         {
-            File.Create(_filePath);
+            FileStream MyFile = File.Create(_filePath);
+            MyFile.Close();
         }
 
         _fileLogger!.ClassName = "FileLogger";
