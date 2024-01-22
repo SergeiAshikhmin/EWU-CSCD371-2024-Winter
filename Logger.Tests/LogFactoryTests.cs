@@ -9,7 +9,7 @@ public class LogFactoryTests
     [TestInitialize]
     public void Constructor()
     {
-        _logFactory = new LogFactory();
+        _logFactory = new();
     }
 
     [TestMethod]
