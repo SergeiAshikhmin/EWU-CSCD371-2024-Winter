@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace Logger.Tests;
 
@@ -14,7 +15,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        //BaseLoggerMixins.Error(null, "");
+        BaseLoggerMixins.Error(null, "");
 
         // Assert
     }
@@ -26,12 +27,27 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        //logger.Error("Message {0}", 42);
+        logger.Error("Message {0}", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
         Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+    }
+
+    [TestMethod]
+    public void Error_WithMoreData_LogsMessage()
+    {
+        // Arrange
+        var logger = new TestLogger();
+
+        // Act
+        logger.Error("Message {0} {1} {2} {3}", 20, 35, 100, 5);
+
+        // Assert
+        Assert.AreEqual(1, logger.LoggedMessages.Count);
+        Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
+        Assert.AreEqual("Message 20 35 100 5", logger.LoggedMessages[0].Message);
     }
 
 }
