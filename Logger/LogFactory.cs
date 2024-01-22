@@ -9,7 +9,7 @@ public class LogFactory
     public BaseLogger? CreateLogger(string className)
     {
         if(className == nameof(FileLogger)){
-            FileLogger FileLogger = new FileLogger(_PathName!) {ClassName = className};
+            FileLogger FileLogger = new(_PathName!) {ClassName = className};
             return FileLogger;
         }
 
