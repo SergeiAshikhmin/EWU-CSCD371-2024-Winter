@@ -5,7 +5,7 @@ namespace Logger.Tests;
 [TestClass]
 public class LogFactoryTests
 {
-    LogFactory? _logFactory;
+    private LogFactory? _logFactory;
     [TestInitialize]
     public void Constructor()
     {
