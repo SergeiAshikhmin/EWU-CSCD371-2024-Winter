@@ -9,7 +9,7 @@ public static class BaseLoggerMixins
     {
         if(logger == null)
         {
-            throw new ArgumentNullException("Error extention method: Missing BaseLogger");
+            throw new ArgumentNullException(message);
         }
 
         if(args == null)
@@ -19,7 +19,7 @@ public static class BaseLoggerMixins
         else
         {
             
-            String TempMessage = String.Format(message, args);
+            String TempMessage = String.Format(null, message, args);
             
             logger.Log(LogLevel.Error, TempMessage);
         }
@@ -31,7 +31,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Error extention method: Missing BaseLogger");
+            throw new ArgumentNullException(message);
         }
 
         if(args == null)
@@ -41,7 +41,7 @@ public static class BaseLoggerMixins
         else
         {
             
-            String TempMessage = String.Format(message, args);
+            String TempMessage = String.Format(null ,message, args);
             
             logger.Log(LogLevel.Warning, TempMessage);
         }
@@ -51,7 +51,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Error extention method: Missing BaseLogger");
+            throw new ArgumentNullException(message);
         }
 
        if(args == null)
@@ -61,7 +61,7 @@ public static class BaseLoggerMixins
         else
         {
             
-            String TempMessage = String.Format(message, args);
+            String TempMessage = String.Format(null, message, args);
             
             logger.Log(LogLevel.Information, TempMessage);
         }
@@ -71,7 +71,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Error extention method: Missing BaseLogger");
+            throw new ArgumentNullException(message);
         }
 
         if(args == null)
@@ -81,7 +81,7 @@ public static class BaseLoggerMixins
         else
         {
             
-            String TempMessage = String.Format(message, args);
+            String TempMessage = String.Format(null, message, args);
             
             logger.Log(LogLevel.Debug, TempMessage);
         }
