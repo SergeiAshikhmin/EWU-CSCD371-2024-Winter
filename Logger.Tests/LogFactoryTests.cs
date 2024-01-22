@@ -5,32 +5,36 @@ namespace Logger.Tests;
 [TestClass]
 public class LogFactoryTests
 {
+    LogFactory? _logFactory;
+    [TestInitialize]
+    public void Constructor()
+    {
+        _logFactory = new LogFactory();
+    }
+
     [TestMethod]
     public void CreateLogger_CheckClassName_Success()
     {
-        LogFactory LogFactory = new();
-        Assert.AreEqual("FileLogger", LogFactory.CreateLogger("FileLogger")!.ClassName);
+        
+        Assert.AreEqual("FileLogger", _logFactory!.CreateLogger("FileLogger")!.ClassName);
     }
 
     [TestMethod]
     public void CreateLogger_CheckClassName_Fail()
     {
-        LogFactory LogFactory = new();
-        Assert.AreNotEqual("FileNotLogger", LogFactory.CreateLogger("FileLogger")!.ClassName);
+        Assert.AreNotEqual("FileNotLogger", _logFactory!.CreateLogger("FileLogger")!.ClassName);
     }
 
     [TestMethod]
     public void ConfigureFileLogger_CorrectPathName_Success()
     {
-        LogFactory LogFactory = new();
-        Assert.AreEqual("text.txt", LogFactory.ConfigureFileLogger("text.txt"));
+        Assert.AreEqual("text.txt", _logFactory!.ConfigureFileLogger("text.txt"));
     }
 
     [TestMethod]
     public void CreateLogger_InvalidClassName_Fail()
     {
-        LogFactory LogFactory = new();
-        Assert.AreEqual(null, LogFactory.CreateLogger("InvalidClaseName"));
+        Assert.AreEqual(null, _logFactory!.CreateLogger("InvalidClaseName"));
 
     }
 }
