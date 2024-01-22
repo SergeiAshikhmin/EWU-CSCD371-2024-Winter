@@ -18,7 +18,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            message = String.Format(message, args[0]);
+            for (int i = 0 ; i < args.Length; i++){
+                message = String.Format(message, args[i]);
+            }
             logger.Log(LogLevel.Error, message);
         }
 
