@@ -9,24 +9,21 @@ public class LogFactoryTests
     public void CreateLogger_CheckClassName_Success()
     {
         LogFactory LogFactory = new();
-        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger")!;
-        Assert.AreEqual("FileLogger", FileLogger.ClassName);
+        Assert.AreEqual("FileLogger", LogFactory.CreateLogger("FileLogger")!.ClassName);
     }
 
     [TestMethod]
     public void CreateLogger_CheckClassName_Fail()
     {
         LogFactory LogFactory = new();
-        BaseLogger FileLogger = LogFactory.CreateLogger("FileLogger")!;
-        Assert.AreNotEqual("FileNotLogger", FileLogger.ClassName);
+        Assert.AreNotEqual("FileNotLogger", LogFactory.CreateLogger("FileLogger")!.ClassName);
     }
 
     [TestMethod]
     public void ConfigureFileLogger_CorrectPathName_Success()
     {
         LogFactory LogFactory = new();
-        string PathName = LogFactory.ConfigureFileLogger("text.txt");
-        Assert.AreEqual("text.txt", PathName);
+        Assert.AreEqual("text.txt", LogFactory.ConfigureFileLogger("text.txt"));
     }
 
     [TestMethod]
