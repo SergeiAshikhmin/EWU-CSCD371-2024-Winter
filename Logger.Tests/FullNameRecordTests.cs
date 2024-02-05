@@ -15,7 +15,7 @@ public class FullNameRecordTests
     [Fact]
     public void FullName_SetRecordToNull_Suceess()
     {
-        FullNameRecord fullName = new();
-        Assert.Null(fullName);
+        Assert.Throws<ArgumentNullException>(
+            () => new FullNameRecord(null, null, null) );
     }
 }
