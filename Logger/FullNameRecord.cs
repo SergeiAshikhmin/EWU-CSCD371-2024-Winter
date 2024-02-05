@@ -11,5 +11,5 @@ public readonly record struct FullNameRecord(string First, string Last, string? 
 {
     public readonly string First { get; init; } = First ?? throw new ArgumentNullException(nameof(First));
     public readonly string Last { get; init; } = Last ?? throw new ArgumentNullException(nameof(First));
-    public readonly string Middle { get; init; } = Middle;
+    public readonly string? Middle { get; init; } = Middle;
 }
