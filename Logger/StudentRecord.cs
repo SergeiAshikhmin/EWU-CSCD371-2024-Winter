@@ -1,9 +1,23 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Logger;
 
 public record class StudentRecord : IEntity
 {
-    public Guid Id { get => throw new NotImplementedException(); init => throw new NotImplementedException(); }
-    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public StudentRecord(string First, string Last, string? Middle = null)
+    {
+        FullName = new(First, Last, Middle);
+
+        if(FullName.Middle == null){
+            Name = FullName.First + " " + FullName.Last;
+        }
+        else{
+            Name = FullName.First + " " + FullName.Middle + " " +  FullName.Last;
+        }
+    }
+    public Guid ID { get; init; } = Guid.NewGuid();
+    public string Name { get; set; }
+    public FullNameRecord FullName {get; init;}
+
 }
