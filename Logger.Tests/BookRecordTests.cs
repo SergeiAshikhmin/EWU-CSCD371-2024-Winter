@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Logger.Tests
 {
-    public class BookTests
+    public class BookRecordTests
     {
         [Fact]
         public void BookRecord_InitilizeName_Success()
