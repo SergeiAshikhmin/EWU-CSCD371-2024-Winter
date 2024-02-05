@@ -11,4 +11,11 @@ public class FullNameRecordTests
         FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
         Assert.Equal("FullNameRecord { First = Inigo, Last = Montoya, Middle = Alex }", fullName.ToString());
     }
+
+    [Fact]
+    public void FullName_SetRecordToNull_Suceess()
+    {
+        FullNameRecord fullName = new();
+        Assert.Null(fullName);
+    }
 }

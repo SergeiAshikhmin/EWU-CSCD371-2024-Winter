@@ -7,4 +7,11 @@ namespace Logger;
 //Why its Immutable:
 // The reason this struct is immutable is because it is a value type and value types must be immutable. 
 // Here the readonly modifyer ensures that the record is immutable.
-public readonly record struct FullNameRecord(string First, string Last, string? Middle = null);
+public readonly record struct FullNameRecord(string First, string Last, string? Middle = null)
+{
+    public string First
+    {
+        get => First;
+        init => First = value ?? throw new ArgumentNullException(nameof(value));
+    }
+}
