@@ -18,4 +18,11 @@ public class FullNameRecordTests
         Assert.Throws<ArgumentNullException>(
             () => new FullNameRecord(null!, null!, null) );
     }
+
+    [Fact]
+    public void FullName_OptionalMiddle_Sucess()
+    {
+        FullNameRecord fullName = new("Inigo", "Montoya", null);
+        Assert.Equal("FullNameRecord { First = Inigo, Last = Montoya, Middle =  }", fullName.ToString());
+    }
 }
