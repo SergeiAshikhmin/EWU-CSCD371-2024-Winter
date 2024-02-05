@@ -16,7 +16,7 @@ public record class StudentRecord : IEntity
             Name = FullName.First + " " + FullName.Middle + " " +  FullName.Last;
         }
     }
-    public Guid ID { get; init; } = Guid.NewGuid();
+    public Guid Id { get; init; } = Guid.NewGuid();
     public string Name { get; set; }
     public FullNameRecord FullName {get; init;}
 
