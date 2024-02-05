@@ -8,8 +8,10 @@ namespace Logger
 {
     public record class BookRecord(string Name) : IEntity
     {
-        public Guid ID { get; init; } = typeof(BookRecord).GUID;
+        public Guid ID { get; init; } = Guid.NewGuid();
+        string IEntity.Name { get; set; } = Name;
 
-        string IEntity.Name { get => Name; set => throw new NotImplementedException(); }
+        //public string Name { get; init; } = Name ?? throw new ArgumentNullException(nameof(Name));
+
     }
 }
