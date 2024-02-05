@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
+    // We implemented the interface implicitly
     public abstract class BaseEnity : IEntity
     {
         public Guid Id { get; init; }
