@@ -8,7 +8,7 @@ namespace Logger
 {
     public abstract class BaseEnity : IEntity
     {
-        public Guid ID { get; init; }
+        public Guid Id { get; init; }
         public abstract string Name { get; set; }
     }
 }

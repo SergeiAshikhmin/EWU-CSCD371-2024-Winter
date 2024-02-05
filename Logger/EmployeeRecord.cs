@@ -17,7 +17,7 @@ public record class EmployeeRecord : IEntity
             Name = First + " " + Middle + " " + Last;
         }
     }
-    public Guid ID { get; init; } = typeof(EmployeeRecord).GUID;
+    public Guid Id { get; init; } = typeof(EmployeeRecord).GUID;
     public string Name { get; set; }
 
     public FullNameRecord FullName { get; init; }
