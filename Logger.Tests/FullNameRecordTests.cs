@@ -6,13 +6,6 @@ namespace Logger.Tests;
 public class FullNameRecordTests
 {
     [Fact]
-    public void FullName_RecordInitialized_Success()
-    {
-        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
-        Assert.Equal("FullNameRecord { First = Inigo, Last = Montoya, Middle = Alex }", fullName.ToString());
-    }
-
-    [Fact]
     public void FullName_SetRecordToNull_Suceess()
     {
         Assert.Throws<ArgumentNullException>(
@@ -20,9 +13,25 @@ public class FullNameRecordTests
     }
 
     [Fact]
+    public void FullName_RecordInitialized_Success()
+    {
+        string First = "Inigo";
+        string Last = "Montoya";
+        string Middle = "Alex";
+
+        FullNameRecord fullName = new(First, Last, Middle);
+        Assert.Equal($"{First} {Middle} {Last}", fullName.ToString());
+    }
+
+    [Fact]
     public void FullName_OptionalMiddle_Sucess()
     {
-        FullNameRecord fullName = new("Inigo", "Montoya", null);
-        Assert.Equal("FullNameRecord { First = Inigo, Last = Montoya, Middle =  }", fullName.ToString());
+
+        string First = "Inigo";
+        string Last = "Montoya";
+        string? Middle = null;
+
+        FullNameRecord fullName = new(First, Last, Middle);
+        Assert.Equal($"{First} {Last}", fullName.ToString());
     }
 }
