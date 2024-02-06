@@ -10,7 +10,7 @@ namespace Logger
     {
         // we implemented implicitly:
         // because each BookRecord object needs to have the id accessable in order to use the Get() function.
-        Guid IEntity.Id { get; init; } = Guid.NewGuid();
+        public Guid Id { get; init; } = Guid.NewGuid();
         // we implemented explicity:
         // because the Book record and the IEntity both have a duplicated naming convention for the Property Name.
         string IEntity.Name { get; set; } = Name;
