@@ -8,7 +8,8 @@ public class EmployeeRecordTests
     [Fact]
     public void EmployeeRecord_InitializeObject_Success()
     {
-        EmployeeRecord employeeRecord = new("Inigo", "Montoya", "Alex");
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        EmployeeRecord employeeRecord = new(fullName);
         Assert.Equal("Inigo Alex Montoya", employeeRecord.Name);
     }
 

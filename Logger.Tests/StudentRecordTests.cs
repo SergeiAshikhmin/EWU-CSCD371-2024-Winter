@@ -27,4 +27,15 @@ public class StudentRecordTests
         StudentRecord student2 = new("Inigo", "Montoya", "Alex");
         Assert.False(student1.Equals(student2));
     }
+
+    [Fact]
+    public void StudentRecord_ChangeName_Success()
+    {
+        string First = "Inigo";
+        string Last = "Montoya";
+        StudentRecord record = new(First, Last, null);
+
+        FullNameRecord fullNameRecord = new("Harry", "Potter", null);
+        record.Name = "Sergei";
+    }
 }
