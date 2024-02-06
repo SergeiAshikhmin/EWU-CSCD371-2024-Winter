@@ -16,7 +16,8 @@ public class EmployeeRecordTests
     [Fact]
     public void EmployeeRecord_SameEmployee_Success()
     {
-        EmployeeRecord employee1 = new("Inigo", "Montoya", "Alex");
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        EmployeeRecord employee1 = new(fullName);
         EmployeeRecord employee2 = employee1 with {};
         Assert.True(employee1.Equals(employee2));
     }
@@ -24,8 +25,9 @@ public class EmployeeRecordTests
     [Fact]
     public void EmployeeRecord_TwoEmployeesNotEqual_Success()
     {
-        EmployeeRecord employee1 = new("Inigo", "Montoya", "Alex");
-        EmployeeRecord employee2 = new("Inigo", "Montoya", "Alex");
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        EmployeeRecord employee1 = new(fullName);
+        EmployeeRecord employee2 = new(fullName);
         Assert.False(employee1.Equals(employee2));
     }
 }
