@@ -12,4 +12,16 @@ public readonly record struct FullNameRecord(string First, string Last, string? 
     public readonly string First { get; init; } = First ?? throw new ArgumentNullException(nameof(First));
     public readonly string Last { get; init; } = Last ?? throw new ArgumentNullException(nameof(First));
     public readonly string? Middle { get; init; } = Middle;
+
+    public override string ToString()
+    {
+        if(string.IsNullOrEmpty(Middle))
+        {
+            return $"{First} {Last}";
+        }
+        else
+        {
+            return $"{First} {Middle} {Last}";
+        }
+    }
 }

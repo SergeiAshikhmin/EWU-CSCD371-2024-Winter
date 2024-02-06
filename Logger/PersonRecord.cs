@@ -25,5 +25,5 @@ public PersonRecord(string First, string Last, string? Middle)
     // Because it makes logical sense for the StudentRecord to have easy access to the name property.
     public string Name { get; set; }
 
-    private FullNameRecord FullName { get; init; }
+    public FullNameRecord FullName { get; init; }
 }
