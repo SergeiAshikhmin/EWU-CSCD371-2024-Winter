@@ -9,12 +9,9 @@ namespace Logger.Tests
 {
     public class StorageTests
     {
-        // Book
-
-
-        // StudentRecord
+        // BookRecod
         [Fact]
-        public void Add_StudentRecord_Success()
+        public void Add_BookRecord_Success()
         {
             BookRecord record = new("The Great Gatsby");
             
@@ -26,7 +23,7 @@ namespace Logger.Tests
         }
 
         [Fact]
-        public void Remove_StudentRecord_Success()
+        public void Remove_BooktRecord_Success()
         {
             BookRecord record = new("To Kill a Mockingbird");
 
@@ -39,7 +36,7 @@ namespace Logger.Tests
         }
 
         [Fact]
-        public void Get_ReturnsCorrectId_Success()
+        public void Get_ReturnsCorrectBookRecordId_Success()
         {
             BookRecord record = new("Moby-Dick");
 
