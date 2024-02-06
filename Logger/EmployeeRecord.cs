@@ -2,7 +2,4 @@ using System;
 
 namespace Logger;
 
-public record class EmployeeRecord : PersonRecord
-{
-    public EmployeeRecord(string First, string Last, string? Middle) : base(First, Last, Middle){}
-}
+public record class EmployeeRecord(string First, string Last, string? Middle) : PersonRecord(First, Last, Middle);
