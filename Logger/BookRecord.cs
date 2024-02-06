@@ -13,6 +13,6 @@ public record class BookRecord(string Name) : IEntity
     public Guid Id { get; init; } = Guid.NewGuid();
     // we implemented explicity:
     // because the Book record and the IEntity both have a duplicated naming convention for the Property Name.
-    string IEntity.Name { get; set; } = Name;
+    string IEntity.Name { get; } = Name;
 
 }
