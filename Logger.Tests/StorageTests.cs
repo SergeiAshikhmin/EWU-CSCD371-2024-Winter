@@ -46,7 +46,50 @@ public class StorageTests
     }
 
     // Student
+    [Fact]
+    public void Add_StudentRecord_Success()
+    {
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        StudentRecord studentRecord = new(fullName);
+        Storage storage = new();
+        storage.Add(studentRecord);
+        Assert.True(storage.Contains(studentRecord));
+    }
 
+    [Fact]
+    public void Remove_StudentRecord_Success()
+    {
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        StudentRecord studentRecord = new(fullName);
+        Storage storage = new();
+        storage.Add(studentRecord);
+        storage.Remove(studentRecord);
+        Assert.False(storage.Contains(studentRecord));
+    }
+
+    [Fact]
+    public void Contains_StudentRecord_Success()
+    {
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        StudentRecord studentRecord = new(fullName);
+        StudentRecord studentRecord1 = new(fullName);
+        Storage storage = new();
+        storage.Add(studentRecord);
+        storage.Add(studentRecord1);
+        Assert.True(storage.Contains(studentRecord));
+    }
+
+    [Fact]
+    public void Get_StudentRecord_Success()
+    {
+        FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
+        StudentRecord studentRecord = new(fullName);
+        StudentRecord studentRecord1 = new(fullName);
+        Storage storage = new();
+        storage.Add(studentRecord);
+        storage.Add(studentRecord1);
+        Assert.Equal(studentRecord, storage.Get(studentRecord.Id));
+    }
     // Employee
     [Fact]
     public void Add_EmployeRecord_Success()
