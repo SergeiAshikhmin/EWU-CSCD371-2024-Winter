@@ -19,7 +19,7 @@ public PersonRecord(string First, string Last, string? Middle)
     }
     // Implicit Iplementation:
     // Because StudentRecord is an Entity that logically has an Id property.
-    public Guid Id { get; init; } = typeof(EmployeeRecord).GUID;
+    public Guid Id { get; init; } = Guid.NewGuid();
 
     // Implicit Implementation:
     // Because it makes logical sense for the StudentRecord to have easy access to the name property.
