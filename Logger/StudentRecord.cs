@@ -16,8 +16,13 @@ public record class StudentRecord : IEntity
             Name = FullName.First + " " + FullName.Middle + " " +  FullName.Last;
         }
     }
+
+    // We choose an implicit implementation for the Id property because StudentRecord is an Entity that logically has an Id property.
     public Guid Id { get; init; } = Guid.NewGuid();
+
+    // We choose an implicit implementation for the Name property because it makes logical sense for the StudentRecord to have
+    // easy access to the name property.
     public string Name { get; set; }
-    public FullNameRecord FullName {get; init;}
+    private FullNameRecord FullName {get; init;}
 
 }
