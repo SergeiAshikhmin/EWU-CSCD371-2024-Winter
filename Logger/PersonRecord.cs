@@ -14,6 +14,6 @@ public record class PersonRecord(FullNameRecord FullName) : IEntity
 
     // Implicit Implementation:
     // Because it makes logical sense for the StudentRecord to have easy access to the name property.
-    public string Name { get; set; } = FullName.GetName();
+    public string Name { get; set; } = FullName.ToString();
 
 }
