@@ -20,7 +20,7 @@ public class FullNameRecordTests
         string Middle = "Alex";
 
         FullNameRecord fullName = new(First, Last, Middle);
-        Assert.Equal($"{First} {Middle} {Last}", fullName.GetName());
+        Assert.Equal($"{First} {Middle} {Last}", fullName.ToString());
     }
 
     [Fact]
@@ -32,6 +32,6 @@ public class FullNameRecordTests
         string? Middle = null;
 
         FullNameRecord fullName = new(First, Last, Middle);
-        Assert.Equal($"{First} {Last}", fullName.GetName());
+        Assert.Equal($"{First} {Last}", fullName.ToString());
     }
 }

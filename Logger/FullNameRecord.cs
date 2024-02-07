@@ -13,7 +13,7 @@ public readonly record struct FullNameRecord(string First, string Last, string? 
     public readonly string Last { get; init; } = Last ?? throw new ArgumentNullException(nameof(First));
     public readonly string? Middle { get; init; } = Middle;
 
-    public string GetName()
+    public override string ToString()
     {
         if(string.IsNullOrEmpty(Middle))
         {
