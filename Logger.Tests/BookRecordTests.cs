@@ -10,7 +10,7 @@ namespace Logger.Tests;
 public class BookRecordTests
 {
     [Fact]
-    public void BookRecord_InitilizeName_Success()
+    public void BookRecord_InitializeName_Success()
     {
         BookRecord book = new("My Book");
         Assert.Equal("My Book", book.Name);
