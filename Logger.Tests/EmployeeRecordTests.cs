@@ -6,11 +6,25 @@ namespace Logger.Tests;
 public class EmployeeRecordTests
 {
     [Fact]
-    public void EmployeeRecord_InitializeObject_Success()
+    public void EmployeeRecord_InitializeObjectFullNameParam_Success()
     {
         FullNameRecord fullName = new("Inigo", "Montoya", "Alex");
         EmployeeRecord employeeRecord = new(fullName);
         Assert.Equal("Inigo Alex Montoya", employeeRecord.Name);
+    }
+
+    [Fact]
+    public void EmployeeRecord_InitializeObjectThreeStringParam_Success()
+    {
+        EmployeeRecord employeeRecord = new("Inigo", "Montoya", "Alex");
+        Assert.Equal("Inigo Alex Montoya", employeeRecord.Name);
+    }
+        
+    [Fact]
+    public void EmployeeRecord_InitializeObjectTwoStringParam_Success()
+    {
+        EmployeeRecord employeeRecord = new("Inigo", "Montoya");
+        Assert.Equal("Inigo Montoya", employeeRecord.Name);
     }
 
     [Fact]
