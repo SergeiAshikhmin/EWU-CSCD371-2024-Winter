@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 
 namespace Assignment
 {
@@ -21,14 +22,33 @@ namespace Assignment
             => string.Join(',',GetUniqueSortedListOfStatesGivenCsvRows());
 
         // 4.
-        public IEnumerable<IPerson> People => throw new NotImplementedException();
+        public IEnumerable<IPerson> People
+        {
+            get
+            {
+                IEnumerable<IPerson> sortedByAddress = CsvRows
+                    .Select(line => line.Split(","))
+                    .OrderBy(line => line[6])
+                    .ThenBy(line => line[5])
+                    .ThenBy(line => line[7])
+                    .Select(line => new Person(line[1], line[2], new Address(line[4], line[5], line[6], line[7]), line[3]));
+                return sortedByAddress;
+            }
+        }
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
-            Predicate<string> filter) => throw new NotImplementedException();
+            Predicate<string> filter) => People
+            .Where(person => filter(person.EmailAddress))
+            .Select(person => (person.FirstName, person.LastName));
 
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
-            IEnumerable<IPerson> people) => throw new NotImplementedException();
+            IEnumerable<IPerson> people) => string.Join(',',
+            people
+            .Select(person => person.Address.State)
+            .Distinct()
+            .Order()
+            );
     }
 }
