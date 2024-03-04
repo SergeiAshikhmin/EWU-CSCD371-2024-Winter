@@ -11,25 +11,6 @@ namespace Assignment
     {
         // 1.
         public IEnumerable<string> CsvRows => File.ReadLines("People.csv").Skip(1);
-        //{
-        //    get
-        //    {
-        //        string? line;
-        //        List<string> list = new();
-        //        using(StreamReader sr = new(@"C:\CSCD371-Assignment7&8-MyAttempt\EWU-CSCD371-2024-Winter\Assignment\Assignment\People.csv"))
-        //        {
-        //            line = sr.ReadLine();
-        //            while (line != null)
-        //            {
-        //                list.Add(line);
-        //                line = sr.ReadLine();
-        //            }
-        //        }
-
-
-        //        return list.Skip(1);
-        //    }
-        //}
 
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
@@ -37,7 +18,7 @@ namespace Assignment
 
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
-            => string.Join(',',GetUniqueSortedListOfStatesGivenCsvRows().ToArray());
+            => string.Join(',',GetUniqueSortedListOfStatesGivenCsvRows());
 
         // 4.
         public IEnumerable<IPerson> People => throw new NotImplementedException();
