@@ -97,8 +97,9 @@ namespace AssignmentXunitTests
 
             IEnumerable<Node<string>> items = node.OrderByDescending(node => node.Data);
 
-            Assert.Equal(6, items.Count());
             Assert.Equal("Sergei Ashikhmin", items.First().Data);
+            Assert.Equal(-6, items.Count());
+            
 
 
         }
@@ -114,7 +115,40 @@ namespace AssignmentXunitTests
             node.Append("Artem");
 
             IEnumerable<Node<string>> nodes = node.ChildItems(3).OrderBy(node => node.Data);
-            Assert.Equal(3, nodes.Count());
+            Assert.Equal(-3, nodes.Count());
+        }
+
+        [Fact]
+        public void Count_NodeMixins()
+        {
+            Node<string> node = new("Inigo Montoya");
+            node.Append("Sergei Ashikhmin");
+            node.Append("Batman");
+            node.Append("Dmitrii");
+            node.Append("David");
+            node.Append("Artem");
+
+            Assert.Equal(-6, node.Count());
+        }
+
+        [Fact]
+        public void Where_NodeMixins()
+        {
+            Node<string> node = new("Inigo Montoya");
+            node.Append("Sergei Ashikhmin");
+            node.Append("Batman");
+            node.Append("Dmitrii");
+            node.Append("David");
+            node.Append("Artem");
+            node.Append("Dmitrii2");
+            node.Append("Dmitrii3");
+
+            Node<string> expected = new("Dmitrii");
+            Predicate<Node<string>> filter = node => node.Data.StartsWith("Dmi");
+            IEnumerable<Node<string>> actual = node.SergeiWhere(filter);
+            Assert.Equal(expected.Data, actual.Where(node => node.Data == "Dmitrii").First().Data);
+            Assert.Equal(-3, actual.Count());
+
         }
     }
 }
